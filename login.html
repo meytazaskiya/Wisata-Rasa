@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisata Rasa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: center; /* Vertically center the content */
+            align-items: center; /* Horizontally center the content */
+        }
+
+        header {
+            background: #FFD93D;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 50px;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        header img {
+            height: 40px;
+        }
+
+        .site-name {
+            font-family: 'Comic Sans MS', 'Comic Neue', cursive;
+            font-size: 36px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav a.active {
+            color: #B31312; 
+            font-weight: 700;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: #B31312;
+            bottom: 0;
+            left: 0;
+            border-radius: 5px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input {
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: none;
+            margin-right: 10px;
+            width: 250px;
+        }
+
+        .search-bar button {
+            background: #B31312;
+            color: #fff;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .search-bar button:hover {
+            background-color: #FFD93D;
+            color: #B31312;
+        }
+
+        .search-bar a {
+            text-decoration: none;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 400px;
+            background-color: #f1f1f1; /* Background of the form */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .content h1 {
+            font-size: 36px;
+            color: #B31312;
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .input-container input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .forgot-password {
+            font-size: 14px;
+            color: #B31312;
+            text-decoration: underline;
+            cursor: pointer;
+            margin-bottom: 20px;
+            text-align: left;
+            margin-left: 20px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background-color: #B31312;
+            color: white;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #FFD93D;
+            color: #B31312;
+        }
+
+        footer {
+            background: #FFD93D;
+            padding: 30px;
+            text-align: center;
+            font-size: 14px;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: black;
+            margin: 0 5px;
+        }
+
+        footer a:hover {
+            color: #B31312;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-left">
+            <div class="logo-text">
+                <img src="FOTO/Logo_WR_HD-removebg-preview.png" alt="Wisata Rasa">
+                <span class="site-name">Wisata Rasa</span>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <div class="content">
+        <h1>Log in</h1>
+
+        <!-- Login Form Section -->
+        <div class="input-container">
+            <input type="email" placeholder="Email" required id="email">
+        </div>
+
+        <div class="input-container">
+            <input type="password" placeholder="Password" required id="password">
+        </div>
+
+        <p class="forgot-password">Forgot Password?</p>
+        <button class="btn" onclick="login()">Log in</button>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        &copy; 2025 Wisata Rasa. All Rights Reserved. | <a href="#">FAQ</a> | <a href="#">Help Center</a> | <a href="#">Privacy Policy</a>
+    </footer>
+
+    <script>
+        // Simulate user login and store user data in localStorage
+        function login() {
+            const emailInput = document.getElementById('email').value;
+            const passwordInput = document.getElementById('password').value;
+
+            // Check if email contains "@" and password is not empty
+            if (emailInput.indexOf('@') === -1) {
+                alert('Please enter a valid email address with "@"');
+            } else if (passwordInput === '') {
+                alert('Password cannot be empty');
+            } else {
+                // Store user info (this could be a real login in a real-world scenario)
+                localStorage.setItem('userEmail', emailInput);
+                localStorage.setItem('isLoggedIn', 'true');
+
+                // Redirect to home page (index.html)
+                window.location.href = "home.html";
+            }
+        }
+    </script>
+
+</body>
+</html>

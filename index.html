@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisata Rasa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: #fff;
+            overflow-x: hidden;
+        }
+        header {
+            background: #FFD93D;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 50px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px; 
+        }
+
+        header img {
+            height: 40px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* jarak antar menu */
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        nav a.active {
+            color: #B31312; 
+            font-weight: 700;
+        }
+        
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: #B31312;
+            bottom: 0;
+            left: 0;
+            border-radius: 5px;
+        }
+        .logo-text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-text img {
+            height: 50px;
+        }
+        
+        .site-name {
+            font-family: 'Comic Sans MS', 'Comic Neue', cursive;
+            font-size: 32px;
+            font-weight: bold;
+            color: #000000;
+        }
+        
+        .hero {
+            background: #B31312;
+            color: white;
+            padding: 60px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-text {
+            max-width: 50%;
+        }
+        .hero-text h1 {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 36px;
+            color: white;
+            margin-bottom: 35px;
+        }
+        .hero-text p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .hero-buttons button {
+            background: #FFD93D;
+            border: none;
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .hero img {
+            width: 500px;
+            border-radius: 50%;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-bar button {
+            background: #B31312;
+            color: #fff;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .search-bar button:last-child {
+            margin-left: 10px; /* Menambahkan jarak antara tombol Log In dan Sign Up */
+        }
+        
+        .search-section {
+            position: relative;
+            height: 300px;
+            overflow: visible;
+            margin-bottom: 100px; /* untuk memberi ruang di bawah */
+        }
+        
+        .search-section .background-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        
+        .search-box {
+            position: absolute;
+            bottom: -60px; /* mengambang ke bawah area gambar */
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FFD93D;
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+
+        .search-box-vertical {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .search-label {
+            font-weight: medium;
+            font-size: 16px;
+            color: #000;
+            z-index: 2;
+        }
+
+        .search-box-horizontal {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .search-input {
+            background: #fff;
+            border-radius: 30px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 250px;
+            position: relative;
+        }
+        
+        .search-input img {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .search-input input {
+            border: none;
+            outline: none;
+            flex: 1;
+            font-size: 14px;
+        }
+        
+        .dropdown-icon {
+            font-size: 14px;
+            color: #999;
+        }
+        
+        .explore-btn {
+            background: #B31312;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+                
+        .features, .categories, .reviews, .food-cards {
+            padding: 50px;
+            text-align: center;
+        }
+        .features h3, .categories h3, .reviews h3 {
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        .feature-items, .category-items, .review-items, .card-items {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .feature, .category, .review, .card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+            width: 200px;
+        }
+
+        .feature {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+            width: 200px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .feature img {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 10px;
+        }
+        .categories {
+            padding: 50px;
+            text-align: center;
+            background: #B31312; /* Red background */
+        }
+        
+        .categories h3 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #fff;
+        }
+        
+        /* Kontainer untuk kategori yang bisa di-scroll */
+        .category-scroll {
+            width: 100%;
+            overflow-x: auto; /* Menambahkan scroll horizontal */
+            display: flex;
+            justify-content: center;
+            padding-bottom: 10px;
+        }
+        
+        /* Menyusun kategori dalam satu baris */
+        .category-items {
+            display: flex;
+            justify-content: flex-start;
+            gap: 30px;
+            flex-wrap: nowrap; /* Tidak akan membungkus item ke bawah */
+            scroll-snap-type: x mandatory; /* Menambahkan scroll snap */
+            width: 100%; /* Memastikan kontainer mengambil seluruh lebar */
+            overflow-x: scroll; /* Menambahkan scroll horizontal */
+        }
+        
+        /* Kategori individual */
+        .category {
+            background: #fff; /* White background for the rectangle */
+            width: 200px;
+            height: 250px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-radius: 10px; /* Rounded corners for the rectangle */
+            scroll-snap-align: start; /* Agar kategori berhenti tepat di posisi tertentu */
+        }
+        
+        .category-icon {
+            padding: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .category-icon img {
+            width: 110px; /* Menyesuaikan ukuran gambar */
+            height: 110px;
+            border-radius: 50%;
+        }
+        
+        .category-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        /* Menambahkan gaya untuk scrollbar */
+        .category-items::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .category-items::-webkit-scrollbar-thumb {
+            background: #B31312;
+            border-radius: 10px;
+        }
+        
+        /* Memastikan hanya 3 kategori yang terlihat pada tampilan desktop */
+        @media (min-width: 1024px) {
+            .category-items {
+                max-width: calc(200px * 3 + 30px * 2); /* Memastikan hanya 3 kategori yang tampak di desktop */
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .category-items {
+                max-width: calc(200px * 3 + 30px * 2); /* Memastikan hanya 3 kategori yang tampak di tablet dan lebih kecil */
+            }
+        }
+         
+                     
+        .reviews {
+            padding: 50px;
+            text-align: center;
+            background-color: #FFD93D; /* Latar belakang kuning di luar */
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        /* Lapis belakang untuk background kuning */
+        .review-background {
+            background-color: #FFD93D;
+            padding: 50px 0;
+        }
+        
+        /* Judul review */
+        .reviews h3 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        /* Kontainer untuk review yang bisa di-scroll */
+        .review-scroll {
+            background-color: #FFFAE6; /* Latar belakang kuning muda */
+            padding: 20px 0; /* Adjusting padding for centering */
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1080px; /* Membatasi lebar kontainer agar tidak terlalu besar */
+            margin: 0 auto; /* Centering the container */
+        }
+        
+        /* Menyusun review dalam satu baris */
+        .review-items {
+            display: flex;
+            justify-content: flex-start;
+            gap: 30px;
+            flex-wrap: nowrap; /* Tidak akan membungkus item ke bawah */
+            scroll-snap-type: x mandatory; /* Menambahkan scroll snap */
+            width: 100%;
+            overflow-x: scroll; /* Menambahkan scroll horizontal */
+        }
+        
+        /* Review individual */
+        .review {
+            background: #FFF; /* White background untuk review */
+            width: 250px; /* Lebar review */
+            padding: 15px; /* Memberikan ruang di dalam kotak */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Memastikan konten terdistribusi merata */
+            align-items: center;
+            text-align: center;
+            border-radius: 12px; /* Rounded corners untuk kotak */
+            scroll-snap-align: start;
+            border: 2px solid #F3F4F6; /* Menambahkan border tipis dengan warna lembut */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Menambahkan sedikit bayangan agar kotak tampak lebih terangkat */
+            margin: 10px; /* Jarak antar review */
+            min-height: 200px; /* Menambah tinggi minimal agar konten tidak terpotong */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .review-rating {
+            font-size: 1.5rem;
+            color: #F3C700; /* Warna bintang */
+            margin-bottom: 15px; /* Jarak antar rating dan isi review */
+        }
+
+        .review h4 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        
+        /* Judul review */
+        .review-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        /* Isi review */
+        .review-content {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        /* Info pengguna */
+        .review-user {
+            display: flex;
+            align-items: left;
+            margin-top: 15px;
+        }
+        
+        .review-user-img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .review-user-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .review-username {
+            font-weight: bold;
+        }
+        
+        .review-date {
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        /* Menambahkan gaya untuk scrollbar */
+        .review-items::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        /* Memastikan hanya 3 review yang terlihat pada tampilan desktop */
+        @media (min-width: 1024px) {
+            .review-items {
+                max-width: calc(250px * 3 + 30px * 2); /* Memastikan hanya 3 review yang tampak di desktop */
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .review-items {
+                max-width: calc(250px * 3 + 30px * 2); /* Memastikan hanya 3 review yang tampak di tablet dan lebih kecil */
+            }
+        }
+        
+        .food-cards {
+            padding: 50px;
+            text-align: center;
+            background-color: #B31312; /* Red background */
+            margin-top: 0;
+            border-bottom: none; /* Menghapus batas bawah untuk menyatu dengan bagian reviews */
+        }
+        
+        .food-cards h3 {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+        
+        /* Scrollable food cards container */
+        .card-scroll {
+            width: 100%;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            display: flex;
+            justify-content: center;
+            padding-bottom: 10px;
+        }
+        
+        /* Card items */
+        .card-items {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: nowrap; /* Prevent wrapping */
+            scroll-snap-type: x mandatory; /* For smooth scrolling */
+            width: max-content; /* Allow the cards to extend beyond container */
+        }
+        
+        /* Individual card */
+        .card {
+            background-color: #fff;
+            width: 300px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            scroll-snap-align: start; /* Keeps card aligned during scroll */
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover; /* Ensures the image fits within the container */
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .card h4 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .card p {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .more-info {
+            background-color: #FFD93D;
+            color: #B31312;
+            border: none;
+            padding: 10px;
+            font-weight: bold;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .more-info:hover {
+            background-color: #B31312;
+            color: #fff;
+        }
+        
+        /* Scrollbar styling */
+        .card-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .card-scroll::-webkit-scrollbar-thumb {
+            background: #B31312;
+            border-radius: 10px;
+        }
+        
+        /* Media Queries for responsive layout */
+        @media (max-width: 1024px) {
+            .card-items {
+                max-width: calc(300px * 3 + 30px * 2); /* Ensure only 3 cards are visible */
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .card-items {
+                flex-direction: column; /* Stack cards vertically on smaller screens */
+            }
+        }
+
+              
+        .footer {
+            background: #FFD93D;
+            padding: 30px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .footer a {
+            text-decoration: none;
+            color: black;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="logo-text">
+                <img src="FOTO\Logo_WR_HD-removebg-preview.png" alt="Wisata Rasa">
+                <span class="site-name">Wisata Rasa</span>
+            </div>
+            <nav>
+                <a href="#" class="active">Home</a>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+            
+            <!-- Tombol Login -->
+            <a href="login.html">
+                <button class="login-btn">Log In</button>
+            </a>
+            
+            <!-- Tombol Sign Up -->
+            <a href="signup.html">
+                <button class="signup-btn">Sign Up</button>
+            </a>
+        </div> 
+    </header> 
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>WISATA TANPA KULINER? <br> GA BERASA!</h1>
+            <p>Jalan-jalan seru, tapi tanpa kuliner? Kayak makan tanpa rasa! Yuk, lengkapi petualanganmu dengan cita rasa lokal terbaik!</p>
+            <div class="hero-buttons">
+                <button>👤</button>
+                <button>😊</button>
+                <button>❓</button>
+            </div>
+        </div>
+        <img src="FOTO\nasi soto beranda.png" alt="Food">
+    </section>
+
+    <section class="search-section">
+        <img src="FOTO\makanan sate.jpg" class="background-img" alt="Background" />
+        <div class="search-box search-box-vertical">
+            <label for="lokasi" class="search-label">Lokasi kamu</label>
+            <div class="search-box-horizontal">
+                <div class="search-input">
+                    <img src="FOTO\lokasi WR.webp" alt="Maps Icon">
+                    <input type="text" id="lokasi" placeholder="Search">
+                    <span class="dropdown-icon">▼</span>
+                </div>
+                <button class="explore-btn">Explore</button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features">
+        <h3>Jangan Sampai Ketinggalan!</h3>
+        <div class="feature-items">
+            <div class="feature">
+                <img src="FOTO\best_seller-removebg-preview.png" alt="Best Seller">
+                <div>Best Seller</div>
+            </div>
+            <div class="feature">
+                <img src="FOTO\lagi_promo-removebg-preview.png" alt="Lagi Promo">
+                <div>Lagi Promo</div>
+            </div>
+            <div class="feature">
+                <img src="FOTO\24_jam-removebg-preview.png" alt="24 Jam">
+                <div>24 Jam</div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="categories">
+        <h3>Yuk Cari Kesukaanmu!</h3>
+        <div class="category-scroll">
+            <div class="category-items">
+                <!-- 3 Kategori pertama yang terlihat pada tampilan desktop -->
+                <div class="category">
+                    <div class="category-icon">
+                        <img src="FOTO\pedas.jpg" alt="Pedas">
+                    </div>
+                    <div class="category-name">Pedas</div>
+                </div>
+                <div class="category">
+                    <div class="category-icon">
+                        <img src="FOTO\manis.jpg" alt="Manis">
+                    </div>
+                    <div class="category-name">Manis</div>
+                </div>
+                <div class="category">
+                    <div class="category-icon">
+                        <img src="FOTO\asin.jpg" alt="Asin">
+                    </div>
+                    <div class="category-name">Asin</div>
+                </div>
+                <!-- 3 Kategori lainnya yang tersembunyi dan muncul saat digulir -->
+                <div class="category">
+                    <div class="category-icon">
+                        <img src="FOTO\gurih.jpg" alt="Gurih">
+                    </div>
+                    <div class="category-name">Gurih</div>
+                </div>
+                <div class="category">
+                    <div class="category-icon">
+                        <img src="FOTO\asam.jpg" alt="Asam">
+                    </div>
+                    <div class="category-name">Asam</div>
+                </div>
+                <div class="category">
+                    <div class="category-icon">
+                        <img src="FOTO\pahit.jpg" alt="Pahit">
+                    </div>
+                    <div class="category-name">Pahit</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="reviews">
+        <h3>Kepo-in Ulasan Orang-Orang</h3>
+        <div class="review-scroll">
+            <div class="review-items">
+                <div class="review">
+                    <div class="review-rating">
+                        ⭐⭐⭐⭐☆
+                    </div>
+                    <h4 class="review-title">Ayam Bakar Mbok Jum</h4>
+                    <p class="review-content">Enak sih tapi bumbunya kemanisan.</p>
+                    <div class="review-user">
+                        <img src="FOTO\situt.jpg" alt="User" class="review-user-img">
+                        <div class="review-user-info">
+                            <p class="review-username">Swasita Tri WIdhya A. C.</p>
+                            <p class="review-date">09/01/2025</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="review-rating">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                    <h4 class="review-title">Sambal Seruit Buk Lin</h4>
+                    <p class="review-content">Mantep!!!!</p>
+                    <div class="review-user">
+                        <img src="FOTO\fotokuWEB.jpg" alt="User" class="review-user-img">
+                        <div class="review-user-info">
+                            <p class="review-username">Arnetha Eka Purwati</p>
+                            <p class="review-date">01/03/2025</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="review-rating">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                    <h4 class="review-title">Pindang Atu Putri Pah</h4>
+                    <p class="review-content">The best culinary experience!</p>
+                    <div class="review-user">
+                        <img src="FOTO\taylor.jpg" alt="User" class="review-user-img">
+                        <div class="review-user-info">
+                            <p class="review-username">Taylor Swift</p>
+                            <p class="review-date">01/03/2025</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="review-rating">
+                        ⭐⭐⭐☆☆
+                    </div>
+                    <h4 class="review-title">Bakso Sonhaji Sony - ...</h4>
+                    <p class="review-content">Dan yap kuahnya hambar</p>
+                    <div class="review-user">
+                        <img src="FOTO\rajaibelis.jpg" alt="User" class="review-user-img">
+                        <div class="review-user-info">
+                            <p class="review-username">Azmii Haniifah</p>
+                            <p class="review-date">12/02/2025</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="review-rating">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                    <h4 class="review-title">Sate Padang Sidi ZA P...</h4>
+                    <p class="review-content">Ga boong, enak bgt satenya aplgi...</p>
+                    <div class="review-user">
+                        <img src="FOTO\makdel.jpg" alt="User" class="review-user-img">
+                        <div class="review-user-info">
+                            <p class="review-username">Indah Febriana Della</p>
+                            <p class="review-date">28/03/2025</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="review-rating">
+                        ⭐⭐⭐⭐☆
+                    </div>
+                    <h4 class="review-title">Soto Lamongan Cak N...</h4>
+                    <p class="review-content">sedapnyooo</p>
+                    <div class="review-user">
+                        <img src="FOTO\ipiw.jpg" alt="User" class="review-user-img">
+                        <div class="review-user-info">
+                            <p class="review-username">Fitria Nuraini</p>
+                            <p class="review-date">21/02/2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="food-cards">
+        <h3>Temukan Kuliner Terbaik</h3>
+        <div class="card-scroll">
+            <div class="card-items">
+                <div class="card">
+                    <img src="FOTO\bakso.jpg" alt="Bakso Sonhaji Sony">
+                    <h4>Bakso Sonhaji Sony</h4>
+                    <button class="more-info">More Information</button>
+                </div>
+                <div class="card">
+                    <img src="FOTO\sate.jpg" alt="Sate Padang Sidi ZA">
+                    <h4>Sate Padang Sidi ZA Pah</h4>
+                    <button class="more-info">More Information</button>
+                </div>
+                <div class="card">
+                    <img src="FOTO\soto.jpg" alt="Soto Lamongan Cak Noto">
+                    <h4>Soto Lamongan Cak Noto</h4>
+                    <button class="more-info">More Information</button>
+                </div>
+                <div class="card">
+                    <img src="FOTO\ayam bakar.jpg" alt="Soto Lamongan Cak Noto">
+                    <h4>Ayam Bakal Mbok Jum</h4>
+                    <button class="more-info">More Information</button>
+                </div>
+                <div class="card">
+                    <img src="FOTO\sambal seruit.jpg" alt="Soto Lamongan Cak Noto">
+                    <h4>Sambal Seriut Buk Lin</h4>
+                    <button class="more-info">More Information</button>
+                </div>
+                <div class="card">
+                    <img src="FOTO\pindang.jpg" alt="Soto Lamongan Cak Noto">
+                    <h4>Pindang Atu Puri...</h4>
+                    <button class="more-info">More Information</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <footer class="footer">
+        &copy; 2025 Wisata Rasa. All Rights Reserved. | <a href="#">FAQ</a> | <a href="#">Help Center</a> | <a href="#">Privacy Policy</a>
+    </footer>
+</body>
+</html>

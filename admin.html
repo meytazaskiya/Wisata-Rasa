@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Admin | Wisata Rasa</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="header">
+    <div class="logo-container">
+      <img src="Logo_WR_HD-removebg-preview.png" alt="Logo Wisata Rasa" class="logo">
+      <span class="brand">Wisata Rasa</span>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <h2>Selamat Datang,<br><strong>ADMIN WISATA RASA</strong></h2>
+
+    <div class="login-box">
+      <h3>Log In</h3>
+      <form onsubmit="handleLogin(event)">
+        <input type="email" placeholder="Email" required />
+        <div class="password-wrapper">
+          <input type="password" id="password" placeholder="Password" required />
+          <span class="eye-icon" onclick="togglePassword()">👁️</span>
+        </div>
+        <button type="submit">Log in</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Ornamen dekoratif -->
+  <img src="bintang_item_WR-removebg-preview.png" class="ornament star top-right">
+  <img src="kentang kuning.png" class="ornament left-top">
+  <img src="assets/dekorasi/star-red.png" class="ornament star-mid">
+  <img src="kentang mera.png" class="ornament zag-mid">
+  <img src="assets/dekorasi/arrow-black.png" class="ornament arrow-bottom">
+  <img src="assets/dekorasi/star-yellow.png" class="ornament star-bottom">
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Services</h4>
+        <p>Find Restaurants<br>Online Reservations<br>Reviews & Ratings<br>Promotions & Discounts</p>
+      </div>
+      <div class="footer-section">
+        <h4>Help & Policies</h4>
+        <p>• FAQ<br>• Help Center<br>• Privacy Policy<br>• Terms & Conditions</p>
+      </div>
+      <div class="footer-section">
+        <h4>Find Us</h4>
+        <p>@wisatarasa_id<br>@wisatarasa.id<br>Wisata Rasa</p>
+      </div>
+    </div>
+    <p class="copyright">© 2025 Wisata Rasa. All Rights Reserved</p>
+  </footer>
+
+  <script>
+    function togglePassword() {
+      const passwordInput = document.getElementById('password');
+      passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+    }
+
+    function handleLogin(event) {
+      event.preventDefault();
+      // Simulasi login berhasil
+      window.location.href = 'dashboard.html'; // Pergi ke dashboard
+    }
+  </script>
+</body>
+</html>

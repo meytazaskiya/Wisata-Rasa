@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisata Rasa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Menjamin halaman penuh */
+        }
+
+        header {
+            background: #FFD93D;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 50px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px; 
+        }
+
+        header img {
+            height: 40px;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* space between links */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav a.active {
+            color: #B31312; 
+            font-weight: 700;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: #B31312;
+            bottom: 0;
+            left: 0;
+            border-radius: 5px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input {
+            padding: 5px 10px;
+            border-radius: 20px;
+            border: none;
+            margin-right: 10px;
+        }
+
+        .search-bar button {
+            background: #B31312;
+            color: #fff;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-text img {
+            height: 50px;
+        }
+
+        .site-name {
+            font-family: 'Comic Sans MS', 'Comic Neue', cursive;
+            font-size: 32px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .hero {
+            background: #B31312;
+            color: white;
+            padding: 60px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-text {
+            max-width: 50%;
+        }
+
+        .hero-text h1 {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 36px;
+            color: white;
+            margin-bottom: 35px;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .hero-buttons button {
+            background: #FFD93D;
+            border: none;
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .hero img {
+            width: 500px;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 40px 50px;
+            text-align: center;
+        }
+
+        .logo-circle {
+            padding: 5px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .logo-circle img {
+            width: 110px;
+            height: 110px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .about {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .decorations {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .decorations .star, .decorations .zigzag {
+            font-size: 2rem;
+        }
+
+        .footer {
+            background: #FFD93D;
+            padding: 30px;
+            text-align: center;
+            font-size: 14px;
+            margin-top: auto;
+        }
+        .footer a {
+            text-decoration: none;
+            color: black;
+            margin: 0 5px;
+        } 
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-left">
+            <div class="logo-text">
+                <img src="FOTO/Logo_WR_HD-removebg-preview.png" alt="Wisata Rasa">
+                <span class="site-name">Wisata Rasa</span>
+            </div>
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="about.html" class="active">About</a>
+            </nav>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <div class="container">
+        <div class="logo-circle">
+            <img src="FOTO/Logo_WR_HD-removebg-preview.png" alt="Wisata Rasa">
+        </div>
+        <h1>Wisata Rasa</h1>
+        <p>Wisata tanpa kuliner? <br> Ga Berasa!</p>
+        <div class="about">
+            <p>Jelajahi kuliner terbaik di setiap destinasi, temukan restoran favorit, dan nikmati promo spesial.<br> Gak perlu bingung, cukup buka Wisata Rasa!</p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        &copy; 2025 Wisata Rasa. All Rights Reserved. | <a href="#">FAQ</a> | <a href="#">Help Center</a> | <a href="#">Privacy Policy</a>
+    </footer>
+    
+</body>
+</html>
